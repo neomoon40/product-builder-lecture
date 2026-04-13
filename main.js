@@ -9,47 +9,49 @@ const loadingMsg = document.getElementById('loading-msg');
 
 // Load the model on startup
 async function loadModel() {
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";
-    model = await tmImage.load(modelURL, metadataURL);
-    maxPredictions = model.getTotalClasses();
-    console.log("Model loaded");
+    try {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+        console.log("AI Model loaded successfully");
+    } catch (e) {
+        console.error("Failed to load AI model", e);
+    }
 }
 
 loadModel();
 
 // Handle Image Selection
-imageInput.addEventListener('change', async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+if (imageInput) {
+    imageInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    // Show preview
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-        imagePreview.src = event.target.result;
-        imagePreview.style.display = 'block';
-        uploadPlaceholder.style.display = 'none';
-        
-        // Show loading and clear results
-        loadingMsg.style.display = 'block';
-        if (labelContainer) labelContainer.innerHTML = '';
-        
-        // Wait for image to load to predict
-        imagePreview.onload = async () => {
-            await predict(imagePreview);
-            loadingMsg.style.display = 'none';
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+            imagePreview.src = event.target.result;
+            imagePreview.style.display = 'block';
+            uploadPlaceholder.style.display = 'none';
+            
+            loadingMsg.style.display = 'block';
+            labelContainer = document.getElementById("label-container");
+            if (labelContainer) labelContainer.innerHTML = '';
+            
+            imagePreview.onload = async () => {
+                await predict(imagePreview);
+                loadingMsg.style.display = 'none';
+            };
         };
-    };
-    reader.readAsDataURL(file);
-});
+        reader.readAsDataURL(file);
+    });
+}
 
 async function predict(imageElement) {
     if (!model) await loadModel();
     
     const prediction = await model.predict(imageElement);
-    
-    labelContainer = document.getElementById("label-container");
-    labelContainer.innerHTML = ''; // Clear previous results
+    labelContainer.innerHTML = ''; 
 
     for (let i = 0; i < maxPredictions; i++) {
         const className = prediction[i].className;
@@ -67,14 +69,14 @@ async function predict(imageElement) {
         const progressBar = document.createElement("div");
         progressBar.className = "progress-bar";
         
-        const translatedName = className === "dog" ? "🐶 강아지상" : 
-                             className === "cat" ? "🐱 고양이상" : className;
+        const translatedName = className === "dog" ? "🐶 강아지상 모델" : 
+                             className === "cat" ? "🐱 고양이상 모델" : className;
         
         labelName.innerHTML = `${translatedName}: ${Math.round(probability * 100)}%`;
         progressBar.style.width = (probability * 100) + "%";
         
         if (probability > 0.5) {
-            progressBar.classList.add('active');
+            progressBar.style.backgroundColor = "var(--primary-color)";
         }
         
         progressWrapper.appendChild(progressBar);
@@ -107,7 +109,19 @@ const submitButton = document.getElementById('submit-button');
 
 if (contactForm) {
     contactForm.addEventListener('submit', () => {
-        submitButton.textContent = '보내는 중...';
+        submitButton.textContent = '문의 내용을 전송 중입니다...';
         submitButton.disabled = true;
     });
 }
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.style.padding = '0.5rem 0';
+        header.style.boxShadow = 'var(--shadow)';
+    } else {
+        header.style.padding = '1rem 0';
+        header.style.boxShadow = 'none';
+    }
+});

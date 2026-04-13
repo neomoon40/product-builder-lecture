@@ -3,54 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 동물상 테스트 (강아지 vs 고양이)</title>
+    <title>SME AI Insight | 중소기업을 위한 AI 교육 및 컨설팅</title>
+    <meta name="description" content="중소기업의 디지털 전환과 생산성 향상을 위한 AI 맞춤형 교육 및 컨설팅 서비스를 제공합니다.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <button id="theme-toggle" title="다크/라이트 모드 전환">🌙</button>
-        <h1>AI 동물상 테스트</h1>
-        <p class="subtitle">나는 강아지상일까, 고양이상일까?</p>
-        
-        <div class="test-container">
-            <div id="image-upload-area">
-                <label for="image-input" class="upload-label">
-                    <div id="image-preview-container">
-                        <img id="image-preview" src="#" alt="이미지 미리보기" style="display: none;">
-                        <div id="upload-placeholder">
-                            <span class="icon">📸</span>
-                            <span class="text">사진을 업로드하세요</span>
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">SME AI <span>Insight</span></a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#why-ai">왜 AI인가?</a></li>
+                    <li><a href="#services">서비스 안내</a></li>
+                    <li><a href="#tech-demo">기술 데모</a></li>
+                    <li><a href="#contact">상담 문의</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" title="다크/라이트 모드 전환">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>중소기업의 내일,<br><span>AI 기술</span>로 앞서가십시오</h1>
+                <p>복잡한 디지털 전환(DX), SME AI Insight가 실질적인 비즈니스 성과로 연결해 드립니다. <br>맞춤형 교육부터 전략 컨설팅까지 원스톱 솔루션을 경험하세요.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">무료 비즈니스 진단 신청</a>
+                    <a href="#services" class="btn btn-secondary">서비스 알아보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-ai" class="content-section">
+            <div class="section-header">
+                <h2>왜 중소기업에 AI 도입이 시급할까요?</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="grid-container">
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3>데이터 기반 의사결정</h3>
+                    <p>직관에 의존하던 기존 방식에서 벗어나, 축적된 데이터를 분석하여 시장의 변화를 예측하고 최적화된 경영 전략을 수립할 수 있습니다. 이는 중소기업의 리스크를 최소화하고 효율성을 극대화하는 핵심 동력이 됩니다.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>업무 효율 및 자동화</h3>
+                    <p>단순 반복적인 업무를 AI 기반 자동화(RPA) 시스템에 맡기세요. 임직원들은 더 창의적이고 부가가치가 높은 핵심 업무에 집중할 수 있어, 기업 전체의 노동 생산성을 획기적으로 개선합니다.</p>
+                </div>
+                <div class="content-card">
+                    <div class="card-icon">💰</div>
+                    <h3>운영 비용의 획기적 절감</h3>
+                    <p>AI 기술은 제조 공정의 불량률 감소, 재고 관리 최적화, 마케팅 효율화 등을 통해 불필요한 지출을 줄여줍니다. 한정된 자원을 가진 중소기업에게 AI는 선택이 아닌 생존을 위한 필수 도구입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="content-section bg-light">
+            <div class="section-header">
+                <h2>우리의 전문 서비스</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-container">
+                <article class="service-item">
+                    <div class="service-text">
+                        <h3>01. 맞춤형 AI 실무 교육</h3>
+                        <p>이론 중심이 아닌 실제 비즈니스에 바로 적용 가능한 실습형 커리큘럼을 제공합니다. 챗GPT 활용법부터 데이터 분석 기초까지, 전 직원의 AI 활용 능력을 강화합니다.</p>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <div class="service-text">
+                        <h3>02. 비즈니스 AI 컨설팅</h3>
+                        <p>기업의 현재 DX 성숙도를 진단하고, 가장 큰 비용 절감이나 매출 증대가 가능한 AI 도입 포인트를 발굴합니다. 로드맵 수립부터 실제 구현까지 함께합니다.</p>
+                    </div>
+                </article>
+                <article class="service-item">
+                    <div class="service-text">
+                        <h3>03. 커스텀 AI 모델 구축 지원</h3>
+                        <p>이미지 인식, 수요 예측 등 기업 특화 데이터에 최적화된 소규모 AI 모델(sLLM 등) 구축을 지원합니다. 대규모 인프라 없이도 강력한 성능을 경험할 수 있습니다.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="tech-demo" class="content-section">
+            <div class="section-header">
+                <h2>AI 컴퓨터 비전 기술 체험</h2>
+                <p>아래 데모는 Teachable Machine을 활용한 이미지 인식 기술의 기초 사례입니다. <br>이러한 비전 AI 기술은 스마트 팩토리의 불량 검수, 매장 고객 행동 분석 등 다양한 산업 현장에 적용될 수 있습니다.</p>
+                <div class="underline"></div>
+            </div>
+            <div class="demo-container">
+                <div id="image-upload-area">
+                    <label for="image-input" class="upload-label">
+                        <div id="image-preview-container">
+                            <img id="image-preview" src="#" alt="이미지 미리보기" style="display: none;">
+                            <div id="upload-placeholder">
+                                <span class="icon">📸</span>
+                                <span class="text">테스트할 이미지를 업로드하세요 (강아지/고양이 등)</span>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                </div>
+                <div id="label-container"></div>
+                <p id="loading-msg" style="display: none;">AI가 이미지를 분석 중입니다...</p>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section bg-light">
+            <div class="section-header">
+                <h2>상담 신청 및 제휴 문의</h2>
+                <p>AI 도입에 대한 고민, 전문가와 상담하세요. 24시간 이내에 답변 드립니다.</p>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-wrapper">
+                <form action="https://formspree.io/f/mrerznzo" method="POST" id="contact-form" class="pro-form">
+                    <input type="hidden" name="_subject" value="SME AI Insight Consulting Inquiry">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">성함 / 업체명</label>
+                            <input type="text" name="name" id="name" required placeholder="성함 또는 기업명을 입력해주세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일 주소</label>
+                            <input type="email" name="_replyto" id="email" required placeholder="example@company.com">
                         </div>
                     </div>
-                </label>
-                <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    <div class="form-group">
+                        <label for="service-type">관심 서비스</label>
+                        <select name="service-type" id="service-type">
+                            <option value="education">AI 실무 교육</option>
+                            <option value="consulting">도입 전략 컨설팅</option>
+                            <option value="model">커스텀 모델 구축</option>
+                            <option value="other">기타 문의</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">상세 문의 내용</label>
+                        <textarea name="message" id="message" rows="6" required placeholder="현재 기업의 상황이나 궁금하신 점을 자유롭게 적어주세요."></textarea>
+                    </div>
+                    <button type="submit" id="submit-button" class="btn btn-primary btn-block">문의하기 신청</button>
+                </form>
             </div>
-            <div id="label-container"></div>
-            <p id="loading-msg" style="display: none;">모델 분석 중...</p>
-        </div>
+        </section>
+    </main>
 
-        <hr class="divider">
-
-        <div class="contact-section">
-            <h2>제휴 문의</h2>
-            <form action="https://formspree.io/f/mrerznzo" method="POST" id="contact-form">
-                <input type="hidden" name="_subject" value="새로운 동물상 테스트 제휴 문의!">
-                <div class="form-group">
-                    <label for="name">성함/업체명</label>
-                    <input type="text" name="name" id="name" required placeholder="성함 또는 업체명을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label for="email">이메일 주소</label>
-                    <input type="email" name="_replyto" id="email" required placeholder="contact@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">문의 내용</label>
-                    <textarea name="message" id="message" rows="4" required placeholder="문의 내용을 상세히 적어주세요"></textarea>
-                </div>
-                <button type="submit" id="submit-button">문의 보내기</button>
-            </form>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p class="footer-logo">SME AI <span>Insight</span></p>
+                <p>서울특별시 강남구 테헤란로 (AI 혁신센터) | 대표전화: 02-1234-5678</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용약관</a>
+                <a href="#">이메일무단수집거부</a>
+            </div>
+            <p class="copyright">&copy; 2026 SME AI Insight. All Rights Reserved.</p>
         </div>
-    </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
