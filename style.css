@@ -1,8 +1,19 @@
 :root {
     --primary-color: #f39c12;
+    --secondary-color: #ffffff;
+    --background-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --container-bg: #ffffff;
+    --container-shadow: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --primary-color: #f39c12;
     --secondary-color: #2c3e50;
     --background-color: #1a1a1a;
     --text-color: #ecf0f1;
+    --container-bg: #2c3e50;
+    --container-shadow: rgba(0,0,0,0.3);
 }
 
 body {
@@ -14,15 +25,33 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><path fill="%232c3e50" d="M50 0a50 50 0 000 100 50 50 0 000-100zm0 10a40 40 0 010 80 40 40 0 010-80z" opacity="0.1"/></svg>');
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
+    position: relative;
     text-align: center;
-    background-color: var(--secondary-color);
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px var(--container-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 h1 {
@@ -52,7 +81,7 @@ h1 {
 
 #generate-button {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: white;
     border: none;
     padding: 15px 30px;
     font-size: 1.2rem;
