@@ -13,9 +13,20 @@
         <p class="subtitle">나는 강아지상일까, 고양이상일까?</p>
         
         <div class="test-container">
-            <div id="webcam-container"></div>
+            <div id="image-upload-area">
+                <label for="image-input" class="upload-label">
+                    <div id="image-preview-container">
+                        <img id="image-preview" src="#" alt="이미지 미리보기" style="display: none;">
+                        <div id="upload-placeholder">
+                            <span class="icon">📸</span>
+                            <span class="text">사진을 업로드하세요</span>
+                        </div>
+                    </div>
+                </label>
+                <input type="file" id="image-input" accept="image/*" style="display: none;">
+            </div>
             <div id="label-container"></div>
-            <button type="button" id="start-button" onclick="init()">테스트 시작하기 (카메라 권한 필요)</button>
+            <p id="loading-msg" style="display: none;">모델 분석 중...</p>
         </div>
 
         <hr class="divider">
