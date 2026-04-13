@@ -53,5 +53,16 @@ function generateAndDisplayNumbers() {
 
 generateButton.addEventListener('click', generateAndDisplayNumbers);
 
+// Form Submission Status
+const contactForm = document.getElementById('contact-form');
+const submitButton = document.getElementById('submit-button');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+        submitButton.textContent = '보내는 중...';
+        submitButton.disabled = true;
+    });
+}
+
 // Initial generation
 generateAndDisplayNumbers();

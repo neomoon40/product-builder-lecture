@@ -23,8 +23,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -36,6 +38,8 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 20px var(--container-shadow);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 500px;
 }
 
 #theme-toggle {
@@ -57,6 +61,72 @@ body {
 h1 {
     color: var(--primary-color);
     margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--text-color);
+    opacity: 0.1;
+    margin: 40px 0;
+}
+
+.contact-section {
+    text-align: left;
+}
+
+.contact-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+    border-color: #444;
+}
+
+#submit-button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#submit-button:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
 }
 
 .numbers-container {
@@ -64,6 +134,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .number {
